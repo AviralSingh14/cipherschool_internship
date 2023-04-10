@@ -1,0 +1,46 @@
+.Nav{
+    position:sticky;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 40px 20px 40px;
+    background-color: #fff;
+    border-bottom: 1px solid #d5d5d5;
+    align-items: center;
+}
+
+.Nav-right{
+    display: flex;
+    align-items: center;
+}
+
+.Nav-right-content{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.Nav-left{
+    display: flex;
+    align-items: center;
+}
+
+.Nav-left-content{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.browse-menu{
+    padding: 5px;
+    border: none;
+}
+
+.search{
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color:#F5F5F5;
+}
