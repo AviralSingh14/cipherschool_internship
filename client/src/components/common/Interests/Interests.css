@@ -1,0 +1,38 @@
+.int-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.int-content button{
+    width: 100%;
+    text-align: left;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: rgb(238, 238, 238);
+}
+
+.int-content button:active{
+    background-color: orange;
+    color: white    ;
+}
+
+.int-content button:hover{
+    background-color: rgb(255, 239, 231);
+}
+.int-content-but{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-top: 20px;
+    align-items: center;
+}

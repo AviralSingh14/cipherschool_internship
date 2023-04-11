@@ -8,6 +8,7 @@ import CipherMap from '../common/CipherMap/ciphermap';
 import Links from '../common/Links/links';
 import Info from '../common/Info/info';
 import Password from '../common/Password/password';
+import Interests from '../common/Interests/interests';
 
 const Profile = () => {
 	return(
@@ -20,6 +21,7 @@ const Profile = () => {
 				<Links/>
 				<Info/>
 				<Password/>
+				<Interests/>
 			</div>
         </div>
 	)
