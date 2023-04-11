@@ -1,13 +1,14 @@
 import './Profile.css'
 import React from'react';
-import LeftNav from '../common/Left-Nav/leftnav';
+
 import NavBar from '../common/navbar/navbar';
+import NameCard from '../common/NameCard/namecard';
 
 const Profile = () => {
 	return(
 		<div>
             <NavBar/>
-			<LeftNav/>
+			<NameCard/>
         </div>
 	)
 }

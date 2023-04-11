@@ -1,8 +1,7 @@
 import './Navbar.css'
 import React, {useState} from'react';
 
-import { HiMenuAlt2 } from "react-icons/hi";
-
+import MenuBar from '../Buttons and Elements/MenuBar/MenuBar';
 import SearchBar from '../Buttons and Elements/SearchBar/searchbar';
 import Browse from '../Buttons and Elements/Browse/browse';
 import Reminder from '../Buttons and Elements/Reminder/reminder';
@@ -14,7 +13,7 @@ const NavBar = () => {
 		<div className='Nav'>
             <div className='Nav-right'>
                 <div className='Nav-right-content'>
-                    <HiMenuAlt2 className='icon'/>
+                    <MenuBar/>
                     <div className='company'>
                         <img src="https://www.cipherschools.com/static/media/Cipherschools_icon@2x.3b571d743ffedc84d039.png" alt="" className='logo'/>
                         <h3>CipherSchools</h3>

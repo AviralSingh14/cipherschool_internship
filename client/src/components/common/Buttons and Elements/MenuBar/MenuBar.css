@@ -1,0 +1,46 @@
+.Nav-Left{
+    position:fixed;
+    top:57px;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    border-right: 1px solid #d5d5d5;
+    align-items: flex-start;
+    width: 250px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.Nav-Left.open{
+    transform: translateX(0);
+}
+
+.MenuBar-Section{
+    padding: 10px 4px;
+    width: 100%;
+}
+
+.MenuBar-List{
+    list-style-type:none;
+    padding: 0;
+    width: 100%;
+}
+
+.MenuBar-List li{
+    display: flex;
+    gap: 15px;
+    padding: 15px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    align-items: center;
+}
+
+.MenuBar-List li:hover {
+    border-radius: 10px;
+    background-color: orange;
+}
