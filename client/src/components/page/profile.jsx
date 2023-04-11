@@ -6,7 +6,7 @@ import NameCard from '../common/NameCard/namecard';
 
 const Profile = () => {
 	return(
-		<div>
+		<div className='profile-container'>
             <NavBar/>
 			<NameCard/>
         </div>
