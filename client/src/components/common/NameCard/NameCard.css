@@ -1,9 +1,8 @@
 .name-card{
     top: 57px;
     position: fixed;
-    background-color: #e3e3e3;
-    opacity: 0.9;
-    background-image:  radial-gradient(#ff7503 1.4500000000000002px, transparent 1.4500000000000002px), radial-gradient(#ff7503 1.4500000000000002px, #e3e3e3 1.4500000000000002px);
+    background-color: #ffffff;
+    background-image:  radial-gradient(#ff7503 1.4500000000000002px, transparent 1.4500000000000002px), radial-gradient(#ff7503 1.4500000000000002px, #fff9f9 1.4500000000000002px);
     background-size: 58px 58px;
     background-position: 0 0,29px 29px;
     width: 100%;
@@ -14,6 +13,7 @@
     align-items: center;
     padding: 20px 40px;
     z-index: 1;
+    border-bottom: 1px solid #c5c5c5;
 }
 
 .name-card-right{

@@ -23,29 +23,29 @@ const SearchBar = () => {
 
   return (
     <div className="search-bar-container">
-        <div className="search-icon">
+      <div className="search-icon">
         <CiSearch/>
-        </div>
-        <input
-            type="text"
-            className="search-input"
-            placeholder="Search and Learn"
-            value={searchText}
-            onChange={handleSearchInputChange}
-        />
-        <div className="filter-icon" onClick={handleFilterButtonClick}>
-            <CiSliderHorizontal />
-            {isFilterDropdownOpen && (
-            <div className="filter-dropdown">
-                <ul>
-                    <li onClick={() => handleFilterOptionClick('video')}>Video</li>
-                    <li onClick={() => handleFilterOptionClick('course')}>Course</li>
-                    <li onClick={() => handleFilterOptionClick('instructor')}>Instructor</li>
-                    <li onClick={() => handleFilterOptionClick('all')}>All</li>
-                </ul>
-            </div>
-            )}
-        </div>
+      </div>
+      <input
+        type="text"
+        className="search-input"
+        placeholder="Search and Learn"
+        value={searchText}
+        onChange={handleSearchInputChange}
+      />
+      <div className="filter-icon" onClick={handleFilterButtonClick}>
+        <CiSliderHorizontal />
+        {isFilterDropdownOpen && (
+          <div className="filter-dropdown">
+            <ul>
+              <li onClick={() => handleFilterOptionClick('video')}>Video</li>
+                <li onClick={() => handleFilterOptionClick('course')}>Course</li>
+                <li onClick={() => handleFilterOptionClick('instructor')}>Instructor</li>
+                <li onClick={() => handleFilterOptionClick('all')}>All</li>
+              </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

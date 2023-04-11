@@ -1,0 +1,17 @@
+.info-dropdown select{
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+}
+option{
+    background-color: rgb(255, 246, 230);
+    padding: 10px;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
