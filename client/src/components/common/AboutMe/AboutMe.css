@@ -1,0 +1,39 @@
+.About-Me{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.About-Me-Section1{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.page-heading{
+    font-size: 20px;
+    color: #2e2e2e;
+    font-weight: 700;
+}
+
+.page-button{
+    background-color: orange;
+    padding: 8px 10px;
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.aboutme-textarea{
+    width: 100%;
+    height: 200px;
+    resize: none;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    outline: none;
+    background-color: #fff;
+}
