@@ -1,0 +1,41 @@
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-button {
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+.icon{
+    font-size: 25px;
+    color: #000;
+}
+
+.dropdown-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: max-content;
+    top: 100%;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.notification-logo{
+    font-size: 40px;
+    color: orange;
+}
+
+.notification-text{
+    font-size: 20px;
+    color: orange;
+}

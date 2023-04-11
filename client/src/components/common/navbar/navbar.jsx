@@ -1,31 +1,34 @@
 import './Navbar.css'
-import React from'react';
+import React, {useState} from'react';
+
+import { HiMenuAlt2 } from "react-icons/hi";
+
+import SearchBar from '../Buttons and Elements/SearchBar/searchbar';
+import Browse from '../Buttons and Elements/Browse/browse';
+import Reminder from '../Buttons and Elements/Reminder/reminder';
+import Profile from '../Buttons and Elements/Profile/profile';
+import Coin from '../Buttons and Elements/Coin/coin';
+
 const NavBar = () => {
 	return(
 		<div className='Nav'>
             <div className='Nav-right'>
                 <div className='Nav-right-content'>
-                    <h3>Menu</h3>
-                    <h3>CipherSchools</h3>
-                    <select name='Browse' className='browse-menu'>
-                        <option value='App Development'>App Development</option>
-                        <option value='Web Development'>Web Development</option>
-                        <option value='Game Development'>Game Development</option>
-                        <option value='Data Structures'>Data Structures</option>
-                        <option value='Programming'>Programming</option>
-                        <option value='Machine Learning'>Machine Learning</option>
-                        <option value='Data Science'>Data Science</option>
-                        <option value='Others'>Others</option>
-                    </select>
+                    <HiMenuAlt2 className='icon'/>
+                    <div className='company'>
+                        <img src="https://www.cipherschools.com/static/media/Cipherschools_icon@2x.3b571d743ffedc84d039.png" alt="" className='logo'/>
+                        <h3>CipherSchools</h3>
+                    </div>
+                    <Browse/>
                 </div>
             </div>
 
             <div className='Nav-left'>
                 <div className='Nav-left-content'>
-                    <input type='text' id='search' placeholder='Search and Learn' className='search'/>
-                    <p>Rem</p>
-                    <p>Pro</p>
-                    <p>Coin</p>
+                    <SearchBar/>
+                    <Reminder/>
+                    <Profile/>
+                    <Coin/>
                     <p>theme</p>
                 </div>
             </div>

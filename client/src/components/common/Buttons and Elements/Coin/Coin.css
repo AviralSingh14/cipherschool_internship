@@ -1,0 +1,71 @@
+.coin{
+    width:24px;
+}
+.coin-container {
+    position: relative;
+}
+
+.button {
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.coin-content {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: max-content;
+    top: 130%;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+.first-line{
+    font-size: 18px;
+    font-weight: 600;
+}
+p1{
+    color: orange;
+    font-weight: 600;
+}
+
+.second-line{
+    font-size: 15px;
+    color: rgb(137, 137, 137);
+}
+.coin-line{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.coin-inside{
+    width: 20px;
+}
+.coin-button{
+    background-color: orange;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: none;
+    flex: 1;
+    font-weight: 600;
+}
+.notification-logo{
+    font-size: 40px;
+    color: orange;
+}
+
+.notification-text{
+    font-size: 20px;
+    color: orange;
+}

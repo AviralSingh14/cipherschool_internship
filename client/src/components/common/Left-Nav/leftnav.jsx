@@ -1,27 +1,36 @@
+import React, { useState } from 'react';
 import './LeftNav.css'
-import React from'react';
 
-const LeftNav = () => {
+const LeftNav = ({onToggleMenu}) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+        onToggleMenu(!isOpen);
+    };
+
     return(
-        <div className='Nav-Left'>
-            <div className='Nav-Left-section'>
-                <div className='Nav-Left-Content'>
-                    <p>Home</p>
-                    <p>Courses</p>
-                    <p>Trending</p>
-                    <p>Following</p>
-                    <p>Discord</p>
-                    <p>Creator</p>
-                    <p>Feedback</p>
-                    <p>Tour</p>
+        <div>
+            {/* <button onClick={toggleMenu}>Toggle</button> */}
+            <div className={`Nav-Left ${isOpen?'open':""}`}>
+                <div className='Nav-Left-section'>
+                    <ul className='Nav-Left-Content'>
+                        <li>Home</li>
+                        <li>Courses</li>
+                        <li>Trending</li>
+                        <li>Following</li>
+                        <li>Discord</li>
+                        <li>Creator</li>
+                        <li>Feedback</li>
+                        <li>Tour</li>
+                    </ul>
+                </div>
+                <div className='Nav-Left-section'>
+                    <div className='Nav-Left-Content'>
+                        <button>Logout</button>
+                    </div>
                 </div>
             </div>
-            <div className='Nav-Left-section'>
-                <div className='Nav-Left-Content'>
-                    <p>Logout</p>
-                </div>
-            </div>
-            
         </div>
     )
 }
