@@ -1,0 +1,37 @@
+.Links{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.Links-Section{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    gap: 20px;
+}
+
+.Links-Section-1{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.Links-SubSection{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.input-field{
+    height: 50px;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    outline: none;
+    background-color: #fff;
+}
