@@ -113,7 +113,7 @@ const Password = () => {
                 <div className='Links-Section'>
                     <div className='Links-SubSection'>
                         <p>Password</p>
-                        <input className='input-field' type='password' value={updatedPassword} disabled/>
+                        <input className='input-field-password' type='password' value={updatedPassword} disabled/>
                     </div>
                 </div>
             </div>
