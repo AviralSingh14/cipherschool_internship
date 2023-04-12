@@ -1,21 +1,12 @@
+import Profile from '../Buttons and Elements/Profile/profile';
 import ProfileEdit from '../Buttons and Elements/ProfileEdit/profileedit';
 import './NameCard.css'
 import React, {useState} from'react';
 
-const NameCard = () => {
-    const [profileData, setProfileData] = useState({
-        firstName: "Aviral",
-        lastName: "Singh",
-        email: "aviralsingh2714@gmail.com",
-        profilePic:null,
-    })
-    const [selectedImage, setSelectedImage] = useState(null);
+const NameCard = ({profileData, selectedImage, onSave}) => {
 
-    const handleSaveClick = (updatedProfileData, imageFile) => {
-        setProfileData(updatedProfileData)
-        setSelectedImage(imageFile)    
-    }
 	return(
+
 		<div className='name-card'>
             <div className='name-card-right'>
                 <div className='profile-picture'>
@@ -29,7 +20,7 @@ const NameCard = () => {
                     )}
                     <div className='edit-button-profile'><ProfileEdit
                         profileData = {profileData}
-                        onSave = {handleSaveClick}
+                        onSave = {onSave}
                     /></div>
                 </div>
                 <div className='name-card-content'>

@@ -10,11 +10,11 @@ import Info from '../common/Info/info';
 import Password from '../common/Password/password';
 import Interests from '../common/Interests/interests';
 
-const Profile = () => {
+const Profile = ({selectedImage, profileData, onSave}) => {
 	return(
 		<div className='profile-container'>
-            <NavBar/>
-			<NameCard/>
+            <NavBar selectedImage={selectedImage} onSave={onSave}/>
+			<NameCard selectedImage={selectedImage} onSave={onSave} profileData={profileData}/>
 			<div className='main-content'>
 				<AboutMe/>
 				<CipherMap/>

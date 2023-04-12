@@ -8,7 +8,7 @@ import Reminder from '../Buttons and Elements/Reminder/reminder';
 import Profile from '../Buttons and Elements/Profile/profile';
 import Coin from '../Buttons and Elements/Coin/coin';
 
-const NavBar = () => {
+const NavBar = ({selectedImage, onSave}) => {
 	return(
 		<div className='Nav'>
             <div className='main-screen'>
@@ -27,7 +27,7 @@ const NavBar = () => {
                     <div className='Nav-left-content'>
                         <SearchBar/>
                         <Reminder/>
-                        <Profile/>
+                        <Profile selectedImage={selectedImage} onSave={onSave}/>
                         <Coin/>
                     </div>
                 </div>

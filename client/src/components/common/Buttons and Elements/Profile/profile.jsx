@@ -2,17 +2,29 @@ import React, {useState} from'react';
 import './Profile.css'
 
 import { CgProfile } from "react-icons/cg";
+// import ProfileEdit from '../ProfileEdit/profileedit';
 
-const Profile = () => {
+const Profile = ({selectedImage}) => {
+
     const [isOpen, setIsOpen] = useState(false);
     const toggleDropDown = () => {
         setIsOpen(!isOpen);
     }
+
     return(
-        <div className='dropdown-container'>
-            <button className='dropdown-button' onClick={toggleDropDown}><CgProfile className='icon'/></button>
+        <div className='profile-dropdown-container'>
+            <div className='profile-dropdown-button' onClick={toggleDropDown}>
+                {selectedImage && (
+                    <div className='nav-profile-image'>
+                        <img
+                            src={URL.createObjectURL(selectedImage)}
+                            alt="Profile Picture"
+                        />
+                    </div>
+                )}
+            </div>
             {isOpen&&(
-            <div className='dropdown-content'>
+            <div className='profile-dropdown-content'>
                 <ul>
                     <li>Dashboard</li>
                     <li>My Profile</li>
