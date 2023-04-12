@@ -21,9 +21,9 @@
     background-color: rgb(238, 238, 238);
 }
 
-.int-content button:active{
+.int-content button.selected{
     background-color: orange;
-    color: white    ;
+    color: white;
 }
 
 .int-content button:hover{
@@ -35,4 +35,18 @@
     justify-content: right;
     margin-top: 20px;
     align-items: center;
+}
+.Interest-Section{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.button-interests{
+    padding: 8px 10px;
+    border-radius: 10px;
+    background-color:orange;
+    color: #fff;
 }

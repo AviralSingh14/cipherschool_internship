@@ -3,6 +3,15 @@ import React, {useState} from'react';
 
 const Interests = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
+    const [interests, setInterests] = useState([]);
+
+    const handleInterestButtonClick = (interest) => {
+        if (interests.includes(interest)) {
+            setInterests(interests.filter((item) => item !== interest));
+        } else {
+            setInterests([...interests, interest]);
+        }
+    };
 
     const handleOpenPopup = () => {
         setPopupVisible(true);
@@ -25,20 +34,52 @@ const Interests = () => {
                     <div className='popup-window'>
                         <div className='popup-sub'>
                             <div className='int-content'>
-                                <button>App Development</button>
-                                <button>Web Development</button>
+                                <button
+                                    className={interests.includes("App Development") ? "selected" : ""}
+                                    onClick={() => handleInterestButtonClick("App Development")}>
+                                    App Development
+                                </button>
+                                <button
+                                    className={interests.includes("Web Development") ? "selected" : ""}
+                                    onClick={() => handleInterestButtonClick("Web Development")}>
+                                    Web Development
+                                </button>
                             </div>
                             <div className='int-content'>
-                                <button>Game Development</button>
-                                <button>Data Structures</button>
+                                <button
+                                    className={interests.includes("Game Development") ? "selected" : ""}
+                                    onClick={() => handleInterestButtonClick("Game Development")}>
+                                    Game Development
+                                </button>
+                                <button
+                                    className={interests.includes("Data Structures") ? "selected" : ""}
+                                    onClick={() => handleInterestButtonClick("Data Structures")}>
+                                    Data Structures
+                                </button>
                             </div>
                             <div className='int-content'>
-                                <button>Programming</button>
-                                <button>Machine Learning</button>
+                                <button
+                                    className={interests.includes("Programming") ? "selected" : ""}
+                                    onClick={() => handleInterestButtonClick("Programming")}>
+                                    Programming
+                                </button>
+                                <button
+                                    className={interests.includes("Machine Learning") ? "selected" : ""}
+                                    onClick={() => handleInterestButtonClick("Machine Learning")}>
+                                    Machine Learning
+                                </button>
                             </div>
                             <div className='int-content'>
-                                <button>Data Science</button>
-                                <button>Others</button>
+                                <button
+                                    className={interests.includes("Data Science") ? "selected" : ""}
+                                    onClick={() => handleInterestButtonClick("Data Science")}>
+                                    Data Science
+                                </button>
+                                <button
+                                    className={interests.includes("Others") ? "selected" : ""}
+                                    onClick={() => handleInterestButtonClick("Others")}>
+                                    Others
+                                </button>
                             </div>
                             <div className='int-content-but'>
                                 <div className='popup-button'>
@@ -53,10 +94,12 @@ const Interests = () => {
             </div>
 
             <div className='Links-Section-1'>
-                <div className='Links-Section'>
-                    <div className='Links-SubSection'>
-                        <p>Interests</p>    
-                    </div>
+                <div className='Interest-Section'>
+                    {interests.map((interest) => (
+                         <div className='button-interests'>
+                            {interest}
+                         </div>   
+                    ))}  
                 </div>
             </div>
         </div>
