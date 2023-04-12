@@ -8,7 +8,7 @@ const Coin = () => {
     }
     return(
         <div className='coin-container'>
-            <button className='button' onClick={toggleDropDown}><img src="https://www.cipherschools.com/static/media/Cipherschools_icon@2x.3b571d743ffedc84d039.png" alt="" className='coin'/></button>
+            <button className='button-coin' onClick={toggleDropDown}><img src="https://www.cipherschools.com/static/media/Cipherschools_icon@2x.3b571d743ffedc84d039.png" alt="" className='coin'/></button>
             {isOpen&&(
             <div className='coin-content'>
                 <div className='coin-line'>

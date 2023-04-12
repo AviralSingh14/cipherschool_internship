@@ -1,48 +1,167 @@
-.Nav{
-    position:fixed;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px 30px 10px 30px;
-    background-color: #fff;
-    border-bottom: 1px solid #d5d5d5;
-    align-items: center;
-    z-index: 2;
+@media only screen and (max-width: 360px) {
+    .main-screen{
+        display: none;
+    }
+
+    .company h3{
+        display: none;
+    }
+
+    .small-screen{
+        position:fixed;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 8px 10px;
+        background-color: #fff;
+        border-bottom: 1px solid #d5d5d5;
+        align-items: center;
+        z-index: 2;
+    }
+
+    .Nav-right{
+        display: flex;
+        align-items: center;
+    }
+
+    .Nav-left{
+        display: flex;
+        align-items: center;
+    }
+
+    .Nav-right-content{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+    }
+    .Nav-left-content{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .company{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+        font-size: 15px;
+    }
+    
+    .logo{
+        width: 25px;
+    }
+}
+@media only screen and (max-width: 880px) and (min-width: 360px){
+    .main-screen{
+        display: none;
+    }
+
+    .small-screen{
+        position:fixed;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 8px 10px;
+        background-color: #fff;
+        border-bottom: 1px solid #d5d5d5;
+        align-items: center;
+        z-index: 2;
+    }
+
+    .Nav-right{
+        display: flex;
+        align-items: center;
+    }
+
+    .Nav-left{
+        display: flex;
+        align-items: center;
+    }
+
+    .Nav-right-content{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+    }
+    .Nav-left-content{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .company{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+        font-size: 15px;
+    }
+    
+    .logo{
+        width: 25px;
+    }
+ 
 }
 
-.Nav-right{
-    display: flex;
-    align-items: center;
-}
+@media only screen and (min-width: 880px){
+    .main-screen{
+        position:fixed;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 30px 10px 30px;
+        background-color: #fff;
+        border-bottom: 1px solid #d5d5d5;
+        align-items: center;
+        z-index: 2;
+    }
 
-.Nav-right-content{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
-}
-
-.Nav-left{
-    display: flex;
-    align-items: center;
-}
-
-.Nav-left-content{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
-}
-
-.company{
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    align-items: center;
-    font-size: 18px;
-}
-
-.logo{
-    width: 35px;
+    .small-screen{
+        display: none;
+    }
+    
+    .Nav-right{
+        display: flex;
+        align-items: center;
+    }
+    
+    .Nav-right-content{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .Nav-left{
+        display: flex;
+        align-items: center;
+    }
+    
+    .Nav-left-content{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .company{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+        font-size: 18px;
+    }
+    
+    .logo{
+        width: 35px;
+    }
+       
 }

@@ -29,9 +29,12 @@ const AboutMe = () => {
                 )}
             </div>
             <div className='About-Me-Section1'>
-                {isEditable?(
-                    <textarea placeholder='Add something about you.' className='aboutme-textarea' value={text} onChange={handleChange}/>
-                ):(<div className='aboutme-textarea'>{text}</div>)}
+                <textarea 
+                disabled={!isEditable}
+                placeholder='Add something about you.' 
+                className='aboutme-textarea' 
+                value={text} 
+                onChange={handleChange}/>
             </div>
         </div>
 	)

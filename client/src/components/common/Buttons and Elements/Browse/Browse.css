@@ -1,40 +1,88 @@
-.dropdown-container {
-    position: relative;
+@media only screen and (max-width: 880px){
+    .browse-dropdown-container {
+        position: relative;
+    }
+    
+    .browse-dropdown-button {
+        background-color: #fff;
+        padding: 4px 8px;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 2.5px;
+        font-size: 15px;
+      }
+      
+    .browse-dropdown-content {
+        position: absolute;
+        width: max-content;
+        top: 100%;
+        border-radius: 10px;
+        background-color: #fff;
+        padding: 8px;
+        border: 1px solid #ddd;
+        z-index: 1;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+      
+    .browse-dropdown-content ul {
+        list-style-type: none;
+        padding: 0;
+    }
+      
+    .browse-dropdown-content li {
+        padding: 8px;
+        cursor: pointer;
+    }
+      
+    .browse-dropdown-content li:hover {
+        border-radius: 10px;
+        background-color: #ddd;
+    }
 }
 
-.dropdown-button {
-    background-color: #fff;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-.dropdown-content {
-    position: absolute;
-    width: max-content;
-    top: 100%;
-    border-radius: 10px;
-    background-color: #fff;
-    padding: 8px;
-    border: 1px solid #ddd;
-    z-index: 1;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-  
-.dropdown-content ul {
-    list-style-type: none;
-    padding: 0;
-}
-  
-.dropdown-content li {
-    padding: 8px;
-    cursor: pointer;
-}
-  
-.dropdown-content li:hover {
-    border-radius: 10px;
-    background-color: #ddd;
+@media only screen and (min-width: 880px){
+    .browse-dropdown-container {
+        position: relative;
+    }
+    
+    .browse-dropdown-button {
+        background-color: #fff;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 18px;
+      }
+      
+    .browse-dropdown-content {
+        position: absolute;
+        width: max-content;
+        top: 100%;
+        border-radius: 10px;
+        background-color: #fff;
+        padding: 8px;
+        border: 1px solid #ddd;
+        z-index: 1;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        font-size: 18px;
+    }
+      
+    .browse-dropdown-content ul {
+        list-style-type: none;
+        padding: 0;
+    }
+      
+    .browse-dropdown-content li {
+        padding: 8px;
+        cursor: pointer;
+    }
+      
+    .browse-dropdown-content li:hover {
+        border-radius: 10px;
+        background-color: #ddd;
+    }
 }

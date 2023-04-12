@@ -18,7 +18,7 @@ const MenuBar = () => {
 
     return(
         <div>
-            <button onClick={toggleMenu} className='button'><HiMenuAlt2 className='icon'/></button>
+            <button onClick={toggleMenu} className='button-menu'><HiMenuAlt2 className='icon'/></button>
             <div className={`Nav-Left ${isOpen?'open':""}`}>
                 <div className='MenuBar-Section'>
                     <ul className='MenuBar-List'>

@@ -10,10 +10,10 @@ const Browse = () => {
         setIsOpen(!isOpen);
     }
     return(
-        <div className='dropdown-container'>
-            <button className='dropdown-button' onClick={toggleDropDown}><AiOutlineCompass/>Browse<RiArrowDropDownLine/></button>
+        <div className='browse-dropdown-container'>
+            <button className='browse-dropdown-button' onClick={toggleDropDown}><AiOutlineCompass/>Browse<RiArrowDropDownLine/></button>
             {isOpen&&(
-            <div className='dropdown-content'>
+            <div className='browse-dropdown-content'>
                 <ul>
                     <li>App Development</li>
                     <li>Web Development</li>

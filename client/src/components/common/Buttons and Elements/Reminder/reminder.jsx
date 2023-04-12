@@ -9,10 +9,10 @@ const Reminder = () => {
         setIsOpen(!isOpen);
     }
     return(
-        <div className='dropdown-container'>
-            <button className='dropdown-button' onClick={toggleDropDown}><AiOutlineBell className='icon'/></button>
+        <div className='reminder-container'>
+            <button className='reminder-button' onClick={toggleDropDown}><AiOutlineBell className='icon'/></button>
             {isOpen&&(
-            <div className='dropdown-content'>
+            <div className='reminder-content'>
                 <AiOutlineBell className='notification-logo'/>
                 <p className='notification-text'>No Notification</p>
             </div>

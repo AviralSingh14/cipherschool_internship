@@ -1,58 +1,165 @@
-.search-bar-container {
-    display: flex;
-    align-items: center;
-    width: 300px;
-    background-color:#F5F5F5;
-    padding: 8px;
-    border-radius: 20px;
-    justify-content: space-between;
-    gap: 10px;
+@media only screen and (max-width: 880px){
+    .search-bar-container-small-devices{
+        width: 100%;
+        background-color: #fff;
+        z-index: 2;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-bar-container{
+        display: none;
+    }
+
+    .search-bar-expanded{
+        padding: 8px 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+        background-color: #fff;
+        padding: 8px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 2;
+        height: 50px;
+        transition: 0.4s all ease-in-out;
+        border-bottom: 1px solid rgb(217, 217, 217);
+    }
+
+    .search-small{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        background-color:#F5F5F5;
+        padding: 8px;
+        border-radius: 50px;
+        gap: 10px;
+    }
+      
+    .search-icon {
+        display: flex;
+        color: #000;
+        cursor: pointer;
+        font-size: 18px;
+        align-self: center;
+    }
+
+    .search-input {
+        font-size: 15px;
+        justify-content: center;
+        flex: 1;
+        border: none;
+        background-color: transparent;
+        outline: none;
+    }
+    .button-expanded{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
+    .filter-icon {
+        padding-right: 8px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+      
+    .filter-dropdown {
+        position: absolute;
+        right: 10px;
+        top: 90%;
+        border-radius: 10px;
+        background-color: #fff;
+        padding: 8px;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+      
+    .filter-dropdown ul {
+        list-style-type: none;
+        padding: 0;
+    }
+      
+    .filter-dropdown li {
+        padding: 8px;
+        cursor: pointer;
+    }
+      
+    .filter-dropdown li:hover {
+        background-color: #ddd;
+        border-radius: 10px;
+    }
+
 }
-  
-.search-icon {
-    color: #000;
-    padding-left: 8px;
-    cursor: pointer;
-    font-size: 18px;
-}
-  
-.search-input {
-    font-size: 15px;
-    justify-content: center;
-    flex: 1;
-    border: none;
-    background-color: transparent;
-    outline: none;
-}
-  
-.filter-icon {
-    padding-right: 8px;
-    cursor: pointer;
-    font-size: 18px;
-}
-  
-.filter-dropdown {
-    position: absolute;
-    top: 100%;
-    border-radius: 10px;
-    background-color: #fff;
-    padding: 8px;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-  
-.filter-dropdown ul {
-    list-style-type: none;
-    padding: 0;
-}
-  
-.filter-dropdown li {
-    padding: 8px;
-    cursor: pointer;
-}
-  
-.filter-dropdown li:hover {
-    background-color: #ddd;
-    border-radius: 10px;
+
+@media only screen and (min-width: 880px){
+    .search-bar-container-small-devices{
+        display: none;
+    }
+
+    .search-bar-container {
+        display: flex;
+        align-items: center;
+        width: 300px;
+        background-color:#F5F5F5;
+        padding: 8px;
+        border-radius: 20px;
+        justify-content: space-between;
+        gap: 10px;
+    }
+      
+    .search-icon {
+        color: #000;
+        padding-left: 8px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+      
+    .search-input {
+        font-size: 15px;
+        justify-content: center;
+        flex: 1;
+        border: none;
+        background-color: transparent;
+        outline: none;
+    }
+      
+    .filter-icon {
+        padding-right: 8px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+      
+    .filter-dropdown {
+        position: absolute;
+        top: 90%;
+        right: 140px;
+        border-radius: 10px;
+        background-color: #fff;
+        padding: 8px;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+      
+    .filter-dropdown ul {
+        list-style-type: none;
+        padding: 0;
+    }
+      
+    .filter-dropdown li {
+        padding: 8px;
+        cursor: pointer;
+    }
+      
+    .filter-dropdown li:hover {
+        background-color: #ddd;
+        border-radius: 10px;
+    }
 }

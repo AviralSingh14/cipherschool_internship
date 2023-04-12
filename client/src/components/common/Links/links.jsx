@@ -20,7 +20,6 @@ const Links = () => {
 
 	return(
 		<div className='Links'>
-
             <div className='Links-Section'>
                 <p className='page-heading'>ON THE WEB</p>
                 {isEditable?(
@@ -32,43 +31,65 @@ const Links = () => {
 
             <div className='Links-Section-1'>
                 <div className='Links-Section'>
-                    <div className='Links-SubSection'>
-                        <p>LinkedIn</p>
-                        {isEditable?(
-                            <input className='input-field' placeholder='LinkedIn' value={text} onChange={handleChange}/>
-                        ):(<div className='input-field'>{text}</div>)}
-                    </div>
-                    <div className='Links-SubSection'>
-                        <p>GitHub</p>
-                        {isEditable?(
-                            <input className='input-field' placeholder='GitHub' value={text} onChange={handleChange}/>
-                        ):(<div className='input-field'>{text}</div>)}
-                    </div>
-                    <div className='Links-SubSection'>
-                        <p>Facebook</p>
-                        {isEditable?(
-                            <input className='input-field' placeholder='Facebook' value={text} onChange={handleChange}/>
-                        ):(<div className='input-field'>{text}</div>)}
+                    <div className='Link-grid'>
+                        <div className='Links-SubSection'>
+                            <p>LinkedIn</p>
+                            <input
+                                disabled={!isEditable} 
+                                className='input-field' 
+                                placeholder='LinkedIn' 
+                                value={text} 
+                                onChange={handleChange}/>
+                        </div>
+                        <div className='Links-SubSection'>
+                            <p>GitHub</p>
+                            <input 
+                            disabled={!isEditable}
+                            className='input-field' 
+                            placeholder='GitHub' 
+                            value={text} 
+                            onChange={handleChange}/>
+                        </div>
+                        <div className='Links-SubSection'>
+                            <p>Facebook</p>
+                            <input
+                            disabled={!isEditable} 
+                            className='input-field' 
+                            placeholder='Facebook' 
+                            value={text} 
+                            onChange={handleChange}/>
+                        </div>
                     </div>
                 </div>
                 <div className='Links-Section'>
-                    <div className='Links-SubSection'>
-                        <p>Twitter</p>
-                        {isEditable?(
-                            <input className='input-field' placeholder='Twitter' value={text} onChange={handleChange}/>
-                        ):(<div className='input-field'>{text}</div>)}
-                    </div>
-                    <div className='Links-SubSection'>
-                        <p>Instagram</p>
-                        {isEditable?(
-                            <input className='input-field' placeholder='Instagram' value={text} onChange={handleChange}/>
-                        ):(<div className='input-field'>{text}</div>)}
-                    </div>
-                    <div className='Links-SubSection'>
-                        <p>Website</p>
-                        {isEditable?(
-                            <input className='input-field' placeholder='Website' value={text} onChange={handleChange}/>
-                        ):(<div className='input-field'>{text}</div>)}
+                    <div className='Link-grid'>
+                        <div className='Links-SubSection'>
+                            <p>Twitter</p>
+                            <input 
+                            disabled={!isEditable} 
+                            className='input-field' 
+                            placeholder='Twitter' 
+                            value={text} 
+                            onChange={handleChange}/>
+                        </div>
+                        <div className='Links-SubSection'>
+                            <p>Instagram</p>
+                            <input 
+                            disabled={!isEditable} 
+                            className='input-field' 
+                            placeholder='Instagram' 
+                            value={text} 
+                            onChange={handleChange}/>
+                        </div>
+                        <div className='Links-SubSection'>
+                            <p>Website</p>
+                            <input 
+                            disabled={!isEditable}
+                            className='input-field' 
+                            placeholder='Website' 
+                            value={text} 
+                            onChange={handleChange}/>
+                        </div>
                     </div>
                 </div>
             </div>
