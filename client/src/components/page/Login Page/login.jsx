@@ -6,33 +6,43 @@ const Login = ({onLoginSuccess}) => {
 
     const [email, setEmail] = useState("");
     const [password, setpassword] = useState("");
-    const config = {
-        headers: {
-            'Content-Type': "application/json"
+
+    const handleLogin = (event) => {
+        if( email === "aviralsingh2714@gmail.com" && password === "Aviral2714"){
+            onLoginSuccess();
+        }
+        else{
+            alert("Invalid Password or Email")
         }
     }
+    
+    // const config = {
+    //     headers: {
+    //         'Content-Type': "application/json"
+    //     }
+    // }
 
-    const formData = {
-        email : email,
-        password : password
-    }
+    // const formData = {
+    //     email : email,
+    //     password : password
+    // }
 
-    const handleLogin = async (event) => {
-        event.preventDefault();
+    // const handleLogin = async (event) => {
+    //     event.preventDefault();
 
-        try{
-            const response = await axios.post('http://localhost:4000/user/login', formData)
-            if (response.data.success){
-                onLoginSuccess();
-            }
-            else{
-                alert("Invalid Username or Password")
-            }
-        }
-        catch(error){
-            console.error('Login Failed', error)
-        }
-    }
+    //     try{
+    //         const response = await axios.post('http://localhost:4000/user/login', formData)
+    //         if (response.data.success){
+    //             onLoginSuccess();
+    //         }
+    //         else{
+    //             alert("Invalid Username or Password")
+    //         }
+    //     }
+    //     catch(error){
+    //         console.error('Login Failed', error)
+    //     }
+    // }
 
 	return(
 		<div className='Login-container'>

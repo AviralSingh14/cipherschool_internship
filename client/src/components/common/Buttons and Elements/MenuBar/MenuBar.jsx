@@ -9,12 +9,14 @@ import { MdSpaceDashboard } from "react-icons/md";
 import { BsDiscord, BsChatLeftTextFill } from "react-icons/bs";
 import { TbCircleLetterC, TbDirections } from "react-icons/tb";
 
-const MenuBar = () => {
+const MenuBar = ({onLogOut, setIsFollower}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    // const [isFollower, setIsFollower] = useState(false)
 
     return(
         <div>
@@ -25,7 +27,7 @@ const MenuBar = () => {
                         <li><AiFillHome/> Home</li>
                         <li><ImBooks/> Courses</li>
                         <li><AiFillCompass/> Trending</li>
-                        <li><FiUserCheck/> Following</li>
+                        <li onClick={setIsFollower}><FiUserCheck/> Following</li>
                         <li><MdSpaceDashboard/> Dashboard</li>
                         <li><BsDiscord/>Discord</li>
                         <li><TbCircleLetterC/> Creator Access</li>
@@ -36,7 +38,7 @@ const MenuBar = () => {
                 <div className='MenuBar-Section'>
                     <div className='Nav-Left-Content'>
                         <ul className='MenuBar-List'>
-                            <li><AiOutlineLogout/> Logout</li>
+                            <li onClick={onLogOut}><AiOutlineLogout/> Logout</li>
                         </ul>
                     </div>
                 </div>

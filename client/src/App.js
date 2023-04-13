@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from 'rea
 
 import Profile from './components/page/Profile/profile';
 import Login from './components/page/Login Page/login';
+import Followers from './components/page/Followers/followers';
 
 function App() {
   const [profileData, setProfileData] = useState({
@@ -24,15 +25,26 @@ function App() {
     setIsLoggedIn(true);
   }
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  }
+  
+  const followerShow = () => {
+    setIsFollower(true);
+  }
+
+  const [isFollower, setIsFollower] = useState(false)
+
   return (
     <div>
       {isLoggedIn?(
-        <Profile selectedImage={selectedImage} profileData={profileData} onSave={handleSaveClick}/>
+        <Profile selectedImage={selectedImage} profileData={profileData} onSave={handleSaveClick} onLogOut={handleLogout} setIsFollower
+        ={followerShow}/>
       ):(
         <Login onLoginSuccess={handleLoginSuccess}/>
       )}
-      
-      
+      {!isLoggedIn && <Login onLoginSuccess={handleLoginSuccess}/>}
+      {isFollower && <Followers/>}
     </div>
   );
 }

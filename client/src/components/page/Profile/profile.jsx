@@ -1,5 +1,5 @@
 import './Profile.css'
-import React from'react';
+import React, {useState} from'react';
 
 import NavBar from '../../common/navbar/navbar';
 import NameCard from '../../common/NameCard/namecard'
@@ -10,10 +10,11 @@ import Info from '../../common/Info/info'
 import Password from '../../common/Password/password'
 import Interests from '../../common/Interests/interests'
 
-const Profile = ({selectedImage, profileData, onSave}) => {
+const Profile = ({selectedImage, profileData, onSave, onLogOut, setIsFollower}) => {
+
 	return(
 		<div className='profile-container'>
-            <NavBar selectedImage={selectedImage} onSave={onSave}/>
+            <NavBar selectedImage={selectedImage} onSave={onSave} onLogOut={onLogOut} setIsFollower={setIsFollower}/>
 			<NameCard selectedImage={selectedImage} onSave={onSave} profileData={profileData}/>
 			<div className='main-content'>
 				<AboutMe/>

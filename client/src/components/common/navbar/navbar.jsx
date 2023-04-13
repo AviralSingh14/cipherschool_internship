@@ -8,7 +8,7 @@ import Reminder from '../Buttons and Elements/Reminder/reminder';
 import Profile from '../Buttons and Elements/Profile/profile';
 import Coin from '../Buttons and Elements/Coin/coin';
 
-const NavBar = ({selectedImage, onSave}) => {
+const NavBar = ({selectedImage, onSave, onLogOut}) => {
 	return(
 		<div className='Nav'>
             <div className='main-screen'>
@@ -47,7 +47,7 @@ const NavBar = ({selectedImage, onSave}) => {
                         <Browse/>
                         <SearchBar/>
                         <Reminder/>
-                        <MenuBar/>
+                        <MenuBar onLogOut={onLogOut}/>
                     </div>
                 </div>
             </div>
