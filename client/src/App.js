@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
+import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from 'react-router-dom';
 
-import Profile from './components/page/profile';
+import Profile from './components/page/Profile/profile';
+import Login from './components/page/Login Page/login';
 
 function App() {
   const [profileData, setProfileData] = useState({
@@ -16,9 +18,21 @@ function App() {
     setSelectedImage(imageFile)    
   }
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true);
+  }
+
   return (
-    <div className="App">
-      <Profile selectedImage={selectedImage} profileData={profileData} onSave={handleSaveClick}/>
+    <div>
+      {isLoggedIn?(
+        <Profile selectedImage={selectedImage} profileData={profileData} onSave={handleSaveClick}/>
+      ):(
+        <Login onLoginSuccess={handleLoginSuccess}/>
+      )}
+      
+      
     </div>
   );
 }
