@@ -8,7 +8,6 @@ module.exports = router;
 
 const User = require("../model/User");
 const auth = require("../middleware/auth")
-const Follower = require("../model/Followers")
 
 //SignUp
 router.post(
@@ -180,12 +179,4 @@ router.put("/update-password", auth, async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 });
-
-//Followers
-router.get("/followers", auth, async(req, res) => {
-  try{
-    const followers = 
-  }
-})
-
 module.exports = router;

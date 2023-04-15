@@ -10,7 +10,7 @@ const FollowersSchema = mongoose.Schema({
     required: true
   },
   followers: {
-    type: String,
+    type: Number,
     required: true
   },
   createdAt: {
