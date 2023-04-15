@@ -1,7 +1,7 @@
 import Profile from '../Buttons and Elements/Profile/profile';
 import ProfileEdit from '../Buttons and Elements/ProfileEdit/profileedit';
 import './NameCard.css'
-import React, {useState} from'react';
+import React, {useEffect, useState} from'react';
 
 const NameCard = ({profileData, selectedImage, onSave}) => {
 

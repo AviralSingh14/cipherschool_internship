@@ -7,42 +7,29 @@ const Login = ({onLoginSuccess}) => {
     const [email, setEmail] = useState("");
     const [password, setpassword] = useState("");
 
-    const handleLogin = (event) => {
-        if( email === "aviralsingh2714@gmail.com" && password === "Aviral2714"){
-            onLoginSuccess();
+    const handleLogin = async () => {
+        try{
+            const response = await fetch('http://localhost:4000/user/login', {
+                method : "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body : JSON.stringify({email, password})
+            })
+            if (response.ok){
+                const data = await response.json()
+                localStorage.setItem("token", data.token)
+                onLoginSuccess();
+            }
+            else{
+                const error = await response.json()
+                alert("Invalid Username or Password", error)
+            }
         }
-        else{
-            alert("Invalid Password or Email")
+        catch(error){
+            console.error('Login Failed', error)
         }
     }
-    
-    // const config = {
-    //     headers: {
-    //         'Content-Type': "application/json"
-    //     }
-    // }
-
-    // const formData = {
-    //     email : email,
-    //     password : password
-    // }
-
-    // const handleLogin = async (event) => {
-    //     event.preventDefault();
-
-    //     try{
-    //         const response = await axios.post('http://localhost:4000/user/login', formData)
-    //         if (response.data.success){
-    //             onLoginSuccess();
-    //         }
-    //         else{
-    //             alert("Invalid Username or Password")
-    //         }
-    //     }
-    //     catch(error){
-    //         console.error('Login Failed', error)
-    //     }
-    // }
 
 	return(
 		<div className='Login-container'>
@@ -57,14 +44,15 @@ const Login = ({onLoginSuccess}) => {
                         onChange={(e) => setEmail(e.target.value)}    
                     ></input>
                 </div>
-                <div className='Login-Input'>
+                <form className='Login-Input'>
                     <p>Enter Password</p>
                     <input 
                         placeholder='Password' 
                         type='password'
+                        autoComplete='current-password'
                         onChange={(e) => setpassword(e.target.value)}
                     ></input>
-                </div>
+                </form>
                 <div className='Login-Buttons'>
                     <div className='Login-Checkbox'>
                         <input type='checkbox'></input>
