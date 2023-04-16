@@ -1,0 +1,52 @@
+.Followers-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.follower-card-container{
+    background-color: #e3e3e3;
+    width: max-content;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+.follower-card-container-main{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+}
+.follower-card-name{
+    font-size: 18px;
+    font-weight: 700;
+    color: orange;
+}
+
+.follower-card-designation{
+    font-size: 15px;
+    color: #6d6d6d;
+}
+.follower-card-follower{
+    font-size: 15px;
+    color: #6d6d6d;
+}
+.follower-card-button{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    width: 100%;
+}
+.follower-card-button-follow{
+    width: 100%;
+    cursor: pointer;
+    padding: 8px 15px;
+    color: orange;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}

@@ -13,6 +13,7 @@ module.exports = router;
 
 const User = require("../model/User");
 const auth = require("../middleware/auth")
+const Follower = require("../model/Followers")
 
 //SignUp
 router.post(
@@ -151,34 +152,6 @@ router.post(
     }
 );
 
-//Get Logged in User
-// router.post("/me", auth, async (req, res) => {
-//   const {email, password} = req.body;
-//     try {
-//       // request.user is getting fetched from Middleware after token authentication
-//       const user = await User.findOne({email});
-//       if(!user){
-//         return res.status(401).send({message : "Invalid email or password"})
-//       }
-//       // res.json(user);
-//       const isPasswordMatch = await bcrypt.compare(password, user.password);
-//       if (!isPasswordMatch){
-//         // res.json(user)
-//         return res.status(401).send({message : "Invalid email or password"})
-//       }
-//       res.send({message : "LoggedIn!"}) 
-//     } catch (e) {
-//       res.send({ message: "Error in Fetching user" });
-//     }
-// });
-// router.get("/me", auth, async (req, res) => {
-//   try {
-//     const user = await User.findById(req.user.id).select("-password");
-//     res.json(user);
-//   } catch (e) {
-//     res.status(500).json({ message: "Error in Fetching user" });
-//   }
-// });
 router.get("/me", auth, async (req, res) => {
   try {
     // request.user is getting fetched from Middleware after token authentication
@@ -188,32 +161,6 @@ router.get("/me", auth, async (req, res) => {
     res.send({ message: "Error in Fetching user" });
   }
 });
-
-// Update Password
-// router.put("/me/update-password", auth, async (req, res) => {
-//   const { username, currentPassword, newPassword } = req.body;
-//   try {
-//     const user = await User.findOne({username});
-//     if (!user) {
-//       return res.status(400).json({ message: "User not found" });
-//     }
-  
-//     const isMatch = await bcrypt.compare(currentPassword, user.password);
-  
-//     if (!isMatch) {
-//       return res.status(400).json({ message: "Incorrect current password" });
-//     }
-  
-//     const salt = await bcrypt.genSalt(10);
-//     user.password = await bcrypt.hash(newPassword, salt);
-//     await user.save();
-  
-//     res.status(200).json({ message: "Password updated successfully" });
-//   } 
-//   catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: "Server Error" });
-//   }
 
 router.put("/me/update-password", auth, async (req, res) => {
   const { currentPassword, newPassword, reEnteredPassword } = req.body;

@@ -9,6 +9,7 @@ import Links from '../../common/Links/links'
 import Info from '../../common/Info/info'
 import Password from '../../common/Password/password'
 import Interests from '../../common/Interests/interests'
+import Followers from '../Followers/followers'
 
 const Profile = () => {
 	const [user, setUser] = useState(null);
@@ -71,6 +72,7 @@ const Profile = () => {
 				<Info/>
 				<Password/>
 				<Interests/>
+				<Followers/>
 			</div>
         </div>
 	)

@@ -1,10 +1,15 @@
 import Profile from '../Buttons and Elements/Profile/profile';
 import ProfileEdit from '../Buttons and Elements/ProfileEdit/profileedit';
 import './NameCard.css'
-import React, {useEffect, useState} from'react';
+import React, {useState} from'react';
 
 const NameCard = ({profileData, selectedImage, onSave}) => {
-
+    const [count, setCount] = useState(null);
+    fetch('http://localhost:4000/follower/total').then(response => response.json()).then(data => {
+        setCount(data.totalFollowers)
+    }).catch(error => {
+        console.error('Failed to fetch follower number', error)
+    })
 	return(
 
 		<div className='name-card'>
@@ -30,7 +35,7 @@ const NameCard = ({profileData, selectedImage, onSave}) => {
                 </div>
             </div>
             <div className='name-card-left'>
-                <a>0 Followers</a>
+                <a>{count} Followers</a>
             </div>
         </div>
 	)

@@ -9,45 +9,49 @@ module.exports = router;
 const auth = require("../middleware/auth")
 const Follower = require("../model/Followers")
 
-//Followers
-router.post("/new-followers",
-    [
-        check("followername", "Please Enter a Valid Follower Name").not().isEmpty(),
-        check("designation", "Please Enter a Valid Designation Name").not().isEmpty(),
-        check("followers", "Please Enter Valid Followers").not().isEmpty()
-    ],
-    async(req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                errors: errors.array()
-            });
-        }
-        const {
+router.post('/newfollower', async (req, res) => {
+    const { followername, designation, followers } = req.body; 
+  
+    // Perform validation on request body
+    if (!followername || !designation || !followers) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+  
+    try {
+      // Create a new follower object
+      const newFollower = new Follower({
         followername,
         designation,
         followers
-        } = req.body;
-        try {
-            let follower = await Follower.findOne({
-                followername
-            });
-            if (follower) {
-                return res.status(400).json({
-                    msg: "Follower Already Exists"
-                });
-            }
-        
-            follower = new Follower({
-                followername,
-                designation,
-                followers
-            });
-        } catch (err) {
-            console.log(err.message);
-            res.status(500).send("Error in Saving");
-        };
+      });
+  
+      // Save the new follower to the database
+      const savedFollower = await newFollower.save();
+  
+      // Return a success response
+      return res.status(201).json({ message: 'Follower added successfully', follower: savedFollower });
+    } catch (err) {
+      // Return an error response if there's an error while saving to the database
+      return res.status(500).json({ error: 'Failed to add follower to the database' });
     }
-)
+});
+
+router.get('/total', async (req, res) => {
+    try {
+        const totalFollowers = await Follower.countDocuments();
+        return res.json({ totalFollowers });
+    } catch (err) {
+      return res.status(500).json({ error: 'Failed to retrieve followers from the database' });
+    }
+});
+
+router.get('/followers', async (req, res) => {
+    try {
+      const allFollowers = await Follower.find();
+      return res.json({ followers: allFollowers });
+    } catch (err) {
+      return res.status(500).json({ error: 'Failed to retrieve followers from the database' });
+    }
+});
   
 module.exports = router;
