@@ -13,7 +13,6 @@ module.exports = router;
 
 const User = require("../model/User");
 const auth = require("../middleware/auth")
-const Follower = require("../model/Followers")
 
 //SignUp
 router.post(

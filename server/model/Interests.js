@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const InterestsSchema = mongoose.Schema({
-  interestName: {
+  interest: {
     type: String,
     required: true
   },
@@ -11,4 +11,4 @@ const InterestsSchema = mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("interests", InterestsSchema);
+module.exports = mongoose.model("interest", InterestsSchema);

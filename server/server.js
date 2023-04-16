@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const user = require("./routes/user")
 const follower = require("./routes/follower")
+const interest = require("./routes/interest")
 const InitiateMongoServer = require("./config/db");
 const cors = require('cors');
 require('dotenv').config();
@@ -34,10 +35,15 @@ app.get("/user/me/update-password", (req, res) => {
   res.json({ message: "update pass Working" });
 });
 
+app.get("/interest", (req, res) => {
+  res.json({ message: "Interests Working" });
+});
+
 app.use(cors())
 app.use("/user", user)
 app.use("/follower", follower)
 app.use("/user/update-password", user)
+app.use("/interest", interest)
 
 app.listen(PORT, (req, res) => {
   console.log(`Server Started at PORT ${PORT}`);

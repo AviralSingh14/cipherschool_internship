@@ -1,17 +1,84 @@
 import './Interests.css'
-import React, {useState} from'react';
+import React, {useState, useEffect} from'react';
+import axios from 'axios';
 
 const Interests = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [interests, setInterests] = useState([]);
+    const [error, setError] = useState(null);
 
-    const handleInterestButtonClick = (interest) => {
-        if (interests.includes(interest)) {
-            setInterests(interests.filter((item) => item !== interest));
-        } else {
-            setInterests([...interests, interest]);
+    useEffect(() => {
+        // Load interests from backend when the component mounts
+        fetchInterests();
+    }, []);
+
+    const fetchInterests = async () => {
+        try {
+            const response = await axios.get('http://localhost:4000/interests');
+            const data = response.data;
+            if (response.status === 200) {
+                if (data.success) {
+                    setInterests(data.interests);
+                } else {
+                    setError(data.message);
+                }
+            } else {
+                throw new Error(data.message);
+            }
+        } catch (error) {
+            setError('Failed to fetch interests:', error);
         }
-    };
+    }
+
+    const handleInterestButtonClick = async (interest) => {
+        try {
+            const response = await axios.post('http://localhost:4000/interest', { interest });
+            const data = response.data;
+            if (response.status === 200) {
+                if (data.success) {
+                    if (interests.includes(interest)) {
+                        setInterests(interests.filter(item => item !== interest));
+                    } else {
+                        setInterests([...interests, interest]);
+                    }
+                } else {
+                    console.error(data.message);
+                }
+            } else {
+                throw new Error(data.message);
+            }
+        } catch (error) {
+            console.error('Failed to toggle interest:', error);
+        }
+    }
+
+    // const handleInterestButtonClick = async (interest) => {
+    //     try {
+    //         const response = await fetch('http://localhost:4000/interest', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({ interest })
+    //         });
+    //         const data = await response.json();
+    //         if (response.ok) {
+    //             if (data.success) {
+    //                 if (interests.includes(interest)) {
+    //                     setInterests(interests.filter(item => item !== interest));
+    //                 } else {
+    //                     setInterests([...interests, interest]);
+    //                 }
+    //             } else {
+    //                 console.error(data.message);
+    //             }
+    //         } else {
+    //             throw new Error(data.message);
+    //         }
+    //     } catch (error) {
+    //         console.error('Failed to toggle interest:', error);
+    //     }
+    // }
 
     const handleOpenPopup = () => {
         setPopupVisible(true);
