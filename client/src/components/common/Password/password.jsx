@@ -1,5 +1,6 @@
 import './Password.css'
 import React, {useState} from'react';
+import axios from 'axios';
 
 const Password = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -8,6 +9,7 @@ const Password = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [updatedPassword, setUpdatedPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleOpenPopup = () => {
         setPopupVisible(true);
@@ -15,6 +17,7 @@ const Password = () => {
 
     const handleClosePopup = () => {
         setPopupVisible(false);
+        setErrorMessage("");
     };
 
     const handleInputChange = (e) => {
@@ -34,22 +37,36 @@ const Password = () => {
         setShowPassword(!showPassword)
     }
 
-    const handleSaveClick = () => {
-        if(newPassword === confirmPassword){
-            const encryptedPassword = encryptPassword(newPassword);
-            setUpdatedPassword(encryptedPassword);
-            setPopupVisible(false)
-            setCurrentPassword("")
-            setNewPassword("")
-            setConfirmPassword("")
-        }
-        else{
-            alert("New Password and Confirm Password do not match")
-        }
-    }
+    const handleSaveClick = async () => {
+        try{
+            const token = localStorage.getItem('token');
+            if(!token){
+                return;
+            }
 
-    const encryptPassword = (password) => {
-        return password;
+            if(newPassword !== confirmPassword){
+                setErrorMessage("New Password and Confirm Password do not match")
+            }
+
+            const response = await axios.put('http://localhost:4000/user/me/update-password', {
+                currentPassword: currentPassword,
+                newPassword: newPassword,
+                reEnteredPassword: confirmPassword
+            }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization" : `${token}`
+                }
+            }, {
+                body : JSON.stringify({newPassword, currentPassword, confirmPassword})
+            });
+
+            alert(response.data.message);
+            setPopupVisible(false);
+        } 
+        catch(error){
+            setErrorMessage(error.response.data.message)
+        }
     }
 
 	return(
@@ -97,6 +114,11 @@ const Password = () => {
                                         onChange={handlePasswordVisibility}/>
                                     Show Password
                                 </label>
+                                {errorMessage && (
+                                    <div className='error-message'>
+                                        {errorMessage}
+                                    </div>
+                                )}
                                 <div className='popup-button'>
                                     <button onClick={handleClosePopup}>Cancel</button>
                                     <button onClick={handleSaveClick}>Save</button>                                    
