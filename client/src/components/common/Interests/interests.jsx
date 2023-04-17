@@ -8,24 +8,26 @@ const Interests = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Load interests from backend when the component mounts
         fetchInterests();
     }, []);
 
     const fetchInterests = async () => {
         try {
-            const response = await axios.get('http://localhost:4000/interests');
+            const response = await axios.get('http://localhost:4000/interest');
             const data = response.data;
             if (response.status === 200) {
                 if (data.success) {
-                    setInterests(data.interests);
-                } else {
+                    setInterests(data.interests);   
+                } 
+                else {
                     setError(data.message);
                 }
-            } else {
+            } 
+            else {
                 throw new Error(data.message);
             }
-        } catch (error) {
+        } 
+        catch (error) {
             setError('Failed to fetch interests:', error);
         }
     }
@@ -38,10 +40,14 @@ const Interests = () => {
                 if (data.success) {
                     if (interests.includes(interest)) {
                         setInterests(interests.filter(item => item !== interest));
-                    } else {
+                        fetchInterests()
+                    } 
+                    else {
                         setInterests([...interests, interest]);
+                        fetchInterests()
                     }
-                } else {
+                } 
+                else {
                     console.error(data.message);
                 }
             } else {
@@ -52,44 +58,39 @@ const Interests = () => {
         }
     }
 
-    // const handleInterestButtonClick = async (interest) => {
-    //     try {
-    //         const response = await fetch('http://localhost:4000/interest', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify({ interest })
-    //         });
-    //         const data = await response.json();
-    //         if (response.ok) {
-    //             if (data.success) {
-    //                 if (interests.includes(interest)) {
-    //                     setInterests(interests.filter(item => item !== interest));
-    //                 } else {
-    //                     setInterests([...interests, interest]);
-    //                 }
-    //             } else {
-    //                 console.error(data.message);
-    //             }
-    //         } else {
-    //             throw new Error(data.message);
-    //         }
-    //     } catch (error) {
-    //         console.error('Failed to toggle interest:', error);
-    //     }
-    // }
-
     const handleOpenPopup = () => {
         setPopupVisible(true);
+        fetchInterests()
     };
 
     const handleClosePopup = () => {
         setPopupVisible(false);
     };
 
-    const handleSaveClick = () => {
-        handleClosePopup()
+    const handleSaveClick = async () => {
+        try {
+            const response = await axios.post('http://localhost:4000/interests', { interests });
+            const data = response.data;
+            console.log(data)
+            if (response.status === 200) {
+                if (data.success === "true") {
+                    handleClosePopup();
+                } 
+                else {
+                    console.error(data.message);
+                }
+            } 
+            else {
+                throw new Error(data.message);
+            }
+        } 
+        catch (error) {
+            console.error('Failed to save interests:', error);
+        }
+        finally{
+            handleClosePopup()
+            fetchInterests()
+        }
     }
 
 	return(
@@ -102,11 +103,13 @@ const Interests = () => {
                         <div className='popup-sub'>
                             <div className='int-content'>
                                 <button
+                                    key={interests.interest}
                                     className={interests.includes("App Development") ? "selected" : ""}
                                     onClick={() => handleInterestButtonClick("App Development")}>
                                     App Development
                                 </button>
                                 <button
+                                    key={interests.interest}
                                     className={interests.includes("Web Development") ? "selected" : ""}
                                     onClick={() => handleInterestButtonClick("Web Development")}>
                                     Web Development
@@ -114,11 +117,13 @@ const Interests = () => {
                             </div>
                             <div className='int-content'>
                                 <button
+                                    key={interests.interest}
                                     className={interests.includes("Game Development") ? "selected" : ""}
                                     onClick={() => handleInterestButtonClick("Game Development")}>
                                     Game Development
                                 </button>
                                 <button
+                                    key={interests.interest}
                                     className={interests.includes("Data Structures") ? "selected" : ""}
                                     onClick={() => handleInterestButtonClick("Data Structures")}>
                                     Data Structures
@@ -126,11 +131,13 @@ const Interests = () => {
                             </div>
                             <div className='int-content'>
                                 <button
+                                    key={interests.interest}
                                     className={interests.includes("Programming") ? "selected" : ""}
                                     onClick={() => handleInterestButtonClick("Programming")}>
                                     Programming
                                 </button>
                                 <button
+                                    key={interests.interest}
                                     className={interests.includes("Machine Learning") ? "selected" : ""}
                                     onClick={() => handleInterestButtonClick("Machine Learning")}>
                                     Machine Learning
@@ -138,11 +145,13 @@ const Interests = () => {
                             </div>
                             <div className='int-content'>
                                 <button
+                                    key={interests.interest}
                                     className={interests.includes("Data Science") ? "selected" : ""}
                                     onClick={() => handleInterestButtonClick("Data Science")}>
                                     Data Science
                                 </button>
                                 <button
+                                    key={interests.interest}
                                     className={interests.includes("Others") ? "selected" : ""}
                                     onClick={() => handleInterestButtonClick("Others")}>
                                     Others
@@ -162,11 +171,13 @@ const Interests = () => {
 
             <div className='Links-Section-1'>
                 <div className='Interest-Section'>
-                    {interests.map((interest) => (
-                         <div className='button-interests'>
-                            {interest}
-                         </div>   
-                    ))}  
+                    {error?(
+                        <p>{error}</p>
+                    ):(
+                        interests.map((interest) => (
+                            <span key={interest._id} className='button-interests'>{interest.interest}</span>
+                        ))
+                    )}
                 </div>
             </div>
         </div>

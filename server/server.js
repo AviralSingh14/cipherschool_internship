@@ -35,10 +35,6 @@ app.get("/user/me/update-password", (req, res) => {
   res.json({ message: "update pass Working" });
 });
 
-app.get("/interest", (req, res) => {
-  res.json({ message: "Interests Working" });
-});
-
 app.use(cors())
 app.use("/user", user)
 app.use("/follower", follower)

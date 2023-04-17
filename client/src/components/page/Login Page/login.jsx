@@ -1,11 +1,11 @@
 import './Login.css'
 import React, {useState} from'react';
-import axios from 'axios';
 
 const Login = ({onLoginSuccess}) => {
 
     const [email, setEmail] = useState("");
     const [password, setpassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = async () => {
         try{
@@ -29,6 +29,10 @@ const Login = ({onLoginSuccess}) => {
         catch(error){
             console.error('Login Failed', error)
         }
+    }
+
+    const handlePasswordVisibility = () => {
+        setShowPassword(!showPassword)
     }
 
 	return(
@@ -55,8 +59,10 @@ const Login = ({onLoginSuccess}) => {
                 </form>
                 <div className='Login-Buttons'>
                     <div className='Login-Checkbox'>
-                        <input type='checkbox'></input>
-                        <label>Show Password</label>
+                        <label>
+                            <input type='checkbox' checked={showPassword} onChange={handlePasswordVisibility}/>
+                            Show Password
+                        </label>
                     </div>
                     <button onClick={handleLogin}>Login</button>
                 </div>

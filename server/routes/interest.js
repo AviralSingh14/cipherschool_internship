@@ -7,36 +7,39 @@ const Interest = require('../model/Interests')
 
 module.exports = router;
 
-let interests = [];
-
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
+        const interests = await Interest.find(); // Fetch all interests from the database
         res.status(200).json({ success: true, interests });
     } catch (error) {
         res.status(500).json({ success: false, message: 'Failed to fetch interests' });
     }
 });
 
-router.post('/', async(req, res) => {
+router.post('/', async (req, res) => {
     try {
         const { interest } = req.body;
         if (!interest) {
             // Send error message as response if interest is not provided
             res.status(400).json({ success: false, message: 'Interest not provided' });
-        } else if (interests.includes(interest)) {
-            // Remove interest if it already exists
-            interests = interests.filter(item => item !== interest);
-            res.status(200).json({ success: true, message: 'Interest removed successfully' });
         } else {
-            // Add interest if it doesn't exist
-            interests.push(interest);
-            res.status(200).json({ success: true, message: 'Interest added successfully' });
+            // Check if interest already exists in the database
+            const existingInterest = await Interest.findOne({ interest });
+            if (existingInterest) {
+                // If interest exists, remove it from the database
+                await Interest.deleteOne({ interest });
+                res.status(200).json({ success: true, message: 'Interest removed successfully' });
+            } else {
+                // If interest does not exist, add it to the database
+                const newInterest = new Interest({ interest });
+                await newInterest.save();
+                res.status(200).json({ success: true, message: 'Interest added successfully' });
+            }
         }
-    } 
-    catch (error) {
+    } catch (error) {
         // Send error message as response
         res.status(500).json({ success: false, message: 'Failed to toggle interest' });
-    };
-})
+    }
+});
 
 module.exports = router;

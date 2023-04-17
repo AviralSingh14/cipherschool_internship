@@ -51,3 +51,12 @@
     outline: none;
     cursor: pointer;
 }
+
+.Login-Checkbox{
+    display: flex;
+    flex-direction: row;
+}
+
+.Login-Checkbox input{
+    margin-right: 5px;
+}
