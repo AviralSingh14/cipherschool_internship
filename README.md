@@ -33,5 +33,6 @@
 <ul>
   <li>Added backend integration for login and name retrieval</li>
   <li>Fixed some issues with api endpoints and fetch methods</li>
-  <li>Added backedn integration of followers retrieval and password change</li>
+  <li>Added backend integration of followers retrieval and password change</li>
+  <li>Added backend integration of interest change</li>
 </ul>
